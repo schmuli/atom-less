@@ -5,7 +5,7 @@ less = require 'less'
 lessPlugins = require './less-plugins'
 outputWriter = require './output-writer'
 
-class LessRenderer
+module.exports =
     render: (filepath) ->
         @getOptions filepath, @renderLess
 
@@ -65,5 +65,3 @@ class LessRenderer
 
         options.file = filepath
         options
-
-module.exports = new LessRenderer

@@ -2,7 +2,7 @@
 
 renderer = require './less-renderer'
 
-class AtomLess
+module.exports =
     activate: (state) ->
         @subscriptions = new CompositeDisposable
 
@@ -23,5 +23,3 @@ class AtomLess
 
         filepath = editor.getPath()
         renderer.render filepath
-
-module.exports = new AtomLess
