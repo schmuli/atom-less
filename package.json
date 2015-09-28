@@ -1,7 +1,7 @@
 {
   "name": "atom-less",
   "main": "./lib/atom-less",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Atom plugin to compile .less files on save.",
   "keywords": [
     "atom",
