@@ -13,6 +13,7 @@ module.exports =
         return if not options.out
 
         lessOptions =
+            paths: [path.dirname options.file]
             filename: options.file
 
         if options.compress? and not options.sourceMap? and not options.cleancss?
