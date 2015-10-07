@@ -7,6 +7,8 @@ module.exports =
         if options.cleancss
             addCleanCss options.cleancss, optionsLess
 
+        optionsLess
+
 addAutoprefix = (options, optionsLess) ->
     AutoprefixLessPlugin = require 'less-plugin-autoprefix'
 

@@ -29,7 +29,7 @@ class FirstLine
         newline = buffer.indexOf '\n', @offset
 
         if newline > -1
-            fs.close @fd, (err) -> console.log err
+            fs.close @fd, (err) -> console.log err if err
             line = buffer.toString undefined, 0, newline
             @callback null, line
         else

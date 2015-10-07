@@ -13,7 +13,6 @@ module.exports =
         return if not options.out
 
         lessOptions =
-            paths: [path.dirname options.file]
             filename: options.file
 
         if options.compress? and not options.sourceMap? and not options.cleancss?
@@ -24,11 +23,9 @@ module.exports =
         lessPlugins options, lessOptions
 
         fs.readFile options.file, (err, contents) =>
-            if err
-                console.log err
-                return
+            return console.log err if err
 
-            less.render contents.toString(), options
+            less.render contents.toString(), lessOptions
                 .then (output) ->
                     outputWriter.write output, options
                 , (err) ->
