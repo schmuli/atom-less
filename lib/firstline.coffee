@@ -23,7 +23,8 @@ class FirstLine
         @readFile()
 
     readFile: ->
-        fs.read @fd, @buffer, @offset, 16, null, @onRead
+        length = Math.min(16, @buffer.length - @offset)
+        fs.read @fd, @buffer, @offset, length, null, @onRead
 
     onRead: (err, bytesRead, buffer) =>
         newline = buffer.indexOf '\n', @offset
