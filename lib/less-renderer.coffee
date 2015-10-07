@@ -37,7 +37,7 @@ module.exports =
         fl = new FirstLine
         fl.read filepath, (err, line) =>
             if err
-                atom.notifications.addError err,
+                atom.notifications.addError "#{filepath} does not exist",
                     dismissable: true
                 return
 
