@@ -44,7 +44,12 @@ module.exports =
             options = @parseFirstLine filepath, line
 
             if options.main
-                @getOptions path.resolve(path.dirname(filepath), options.main), callback
+                if typeof options.main == 'string'
+                    @getOptions path.resolve(path.dirname(filepath), options.main), callback
+                else
+                    for i in [0...options.main.length]
+                        @getOptions path.resolve(path.dirname(filepath), options.main[i]), callback
+
             else
                 callback options
 
