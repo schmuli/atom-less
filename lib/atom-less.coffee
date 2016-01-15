@@ -19,7 +19,7 @@ module.exports =
         return if not editor
 
         grammer = editor.getGrammar()
-        return if grammer.name != 'LESS'
+        return if grammer.name != 'Less'
 
         filepath = editor.getPath()
         renderer.render filepath
