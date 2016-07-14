@@ -19,7 +19,7 @@ On the first line of LESS files, add a valid JSON comment, not including the out
 - **"cleancss"**: <code>string|object</code> -
     a string specifying the 'compatibility' property,
     or an object specifying the Clean-CSS properties (not compatible with Source Maps)
-- **"autoprefixer"**: <code>string|object</code> -
+- **"autoprefix"**: <code>string|object</code> -
     a <code>;</code> separated string specifying the 'browsers' property,
     or an object specifying the AutoPrefixer properties
 
