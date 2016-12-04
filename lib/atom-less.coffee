@@ -8,6 +8,7 @@ module.exports =
 
         @subscriptions.add atom.commands.add 'atom-workspace',
             'core:save': => @render()
+            'window:save-all': => @render()
 
     deactivate: ->
         @subscriptions.dispose()
