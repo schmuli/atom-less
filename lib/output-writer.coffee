@@ -5,8 +5,7 @@ async = require 'async'
 
 class OutputWriter
     write: (output, options) ->
-        [cssFile, sourceMapFile] = @getDestination options
-
+        [cssFile, sourceMapFile, onSaveMessage] = @getDestination options
         async.series
             css: (callback) =>
                 @writeFile cssFile, output.css, callback
@@ -19,10 +18,11 @@ class OutputWriter
                 if err
                     atom.notifications.addError err,
                         dismissiable: true
-                else if output.map?
-                    atom.notifications.addSuccess "Files created"
-                else
-                    atom.notifications.addSuccess "File created"
+                else if onSaveMessage
+                        if output.map?
+                            atom.notifications.addSuccess "Files created"
+                        else
+                            atom.notifications.addSuccess "File created"
 
     writeFile: (file, content, callback) ->
         mkdirp path.dirname(file), (err) ->
@@ -47,6 +47,6 @@ class OutputWriter
             sourceMapFile = "#{cssFile}.map"
             sourceMapFile = path.resolve lessDir, sourceMapFile
 
-        return [cssFile, sourceMapFile]
+        return [cssFile, sourceMapFile, options.onSaveMessage]
 
 module.exports = new OutputWriter
