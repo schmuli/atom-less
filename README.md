@@ -20,6 +20,8 @@ On the first line of LESS files, add a valid JSON comment, not including the out
     a string specifying the 'compatibility' property, or an object specifying the Clean-CSS properties (not compatible with Source Maps)
 - **"autoprefix"**: <code>string|object</code> -
     a string specifying the 'browsers' property, or an object specifying the AutoPrefixer properties
+- **"onSaveMessage"**: <code>boolean</code> -
+    <code>true</code> to enable messages (`File created`) on file saving.
 
 Other LESS compiler options might work but are untested at this point.
 
