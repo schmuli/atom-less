@@ -2,6 +2,12 @@
 
 An Atom package that auto-compiles LESS files on save, with support for LESS plugins, Clean-CSS and AutoPrefixer.
 
+## UNMAINTAINED
+
+I'm sorry but the code hasn't been updated in a long time, since I am no longer using Atom, and therefore not maintaining the code anymore or publishing new versions.
+
+Sorry about that. If you would like to take ownership of the code and plugin, please open a new issue.
+
 ### Configuration
 
 On the first line of LESS files, add a valid JSON comment, not including the outer brackets ('{' and '}'), with the following properties:
