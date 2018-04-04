@@ -1,25 +1,15 @@
-{CompositeDisposable} = require 'atom'
-
 renderer = require './less-renderer'
 
 module.exports =
     activate: (state) ->
-        @subscriptions = new CompositeDisposable
-
-        @subscriptions.add atom.commands.add 'atom-workspace',
-            'core:save': => @render()
+        atom.workspace.observeTextEditors (editor) =>
+            editor.onDidSave (event) =>
+                @render event.path
 
     deactivate: ->
         @subscriptions.dispose()
 
     serialize: ->
 
-    render: ->
-        editor = atom.workspace.getActiveTextEditor()
-        return if not editor
-
-        grammer = editor.getGrammar()
-        return if grammer.name.toLowerCase() != 'less'
-
-        filepath = editor.getPath()
+    render: (filepath) ->
         renderer.render filepath
